@@ -11,18 +11,17 @@ public class NavMeshController : MonoBehaviour
 
     private void Awake()
     {
-        cam = Camera.main;
+        cam = Camera.main;        //testing only
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void Update () 
+    private void Update () 
     {
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out var hit))
             {
                 agent.SetDestination(hit.point);
             }
